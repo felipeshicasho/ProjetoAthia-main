@@ -65,7 +65,7 @@
   }
   
   .li__principal.active ul {
-      max-height: 200px; /* Defina um valor grande o suficiente para conter o conteúdo */
+      max-height: 400px; /* Defina um valor grande o suficiente para conter o conteúdo */
   }
   
   .li__principal.active::after {
@@ -85,4 +85,16 @@
   
   .li__icon{
       height: 40px;
+  }
+
+  .li__icon__button{
+    height: 20px;
+    margin: 4px;
+  }
+
+  .li__menu{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
   }
