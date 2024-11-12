@@ -2,14 +2,15 @@
 
 function conectarBD(){
 
-    $conexao = mysqli_connect("localhost","root","","ProjetoAthia-main");
+    $conexao = mysqli_connect("localhost","root","","empresa");
+
     return($conexao);
 }
 
-function inserirEmpresa($id, $razao_social, $nome_fantasia, $cnpj){
+function inserirEmpresa($razao_social, $nome_fantasia, $cnpj){
     $conexao = conectarBD();
-    $consulta = "INSERT INTO empresa (id, razao_social, nome_fantasia, cnpj)
-                 VALUES ('$id', '$razao_social', '$nome_fantasia', '$cnpj')";
+    $consulta = "INSERT INTO empresa (razao_social, nome_fantasia, cnpj)
+                 VALUES ('$razao_social', '$nome_fantasia', '$cnpj')";
     mysqli_query($conexao, $consulta);
     mysqli_close($conexao);
 }

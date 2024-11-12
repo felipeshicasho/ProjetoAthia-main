@@ -98,3 +98,39 @@
     gap: 10px;
 
   }
+
+  .forms__section {
+    display: flex;
+    width: 500px;
+    border: 1px solid black;
+    border-radius: 25px;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+  .forms__input{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .form__button{
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+  }
+  
+  .form__button:hover{
+    background-color: gray;
+    cursor: pointer;
+  }
+
+  .form__text{
+    width: 250px;
+    padding: 5px;
+    border-radius: 20px;
+  }

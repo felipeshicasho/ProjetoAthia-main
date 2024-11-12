@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ATHIA Projeto</title>
-    <link rel="stylesheet" href="/ProjetoAthia-main/client/css/index.css" />
+    <link rel="stylesheet" href="../css/index.css" />
   </head>
   <body>
     <nav>
@@ -44,7 +44,7 @@
                   class="li__icon__button"
                   src="../assets/icon/add.png"
                   alt=""
-                /><a href="">Adicionar Empresa</a>
+                /><a href="adicionarEmpresa.php">Adicionar Empresa</a>
               </li>
               <li class="li__link li__menu">
                 <img
@@ -120,13 +120,6 @@
       <section></section>
     </main>
 
-    <script>
-      document.querySelectorAll(".li__principal").forEach((item) => {
-        item.addEventListener("click", () => {
-          // Alterna a classe "active" para exibir/esconder a sublista
-          item.classList.toggle("active");
-        });
-      });
-    </script>
+    <script src="../js/script.js"></script>
   </body>
 </html>
