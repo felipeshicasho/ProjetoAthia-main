@@ -15,10 +15,10 @@ function inserirEmpresa($razao_social, $nome_fantasia, $cnpj){
     mysqli_close($conexao);
 }
 
-function inserirSetor($id, $descricao){
+function inserirSetor($descricao){
     $conexao = conectarBD();
-    $consulta = "INSERT INTO setor (id, descricao)
-                 VALUES ('$id', '$descricao')";
+    $consulta = "INSERT INTO setor (descricao)
+                 VALUES ('$descricao')";
     mysqli_query($conexao, $consulta);
     mysqli_close($conexao);
 }
@@ -77,12 +77,11 @@ function deletarSetor($id){
     mysqli_close($conexao);
 }
 
-// function atualizarEmpresaRazaoSocial($id, $novo_razao_social){
-//     $conexao = conectarBD();
-//     $consulta = "UPDATE empresa SET razao_social = '$novo_razao_social' 
-//                 WHERE id = '$id'";
-//     mysqli_query($conexao, $consulta);
-//     mysqli_close($conexao);
-// }
-
+function modificarEmpresa($id, $razao_social, $nome_fantasia, $cnpj) {
+    $conexao = conectarBD();
+    $consulta = "UPDATE empresa SET razao_social = '$razao_social', 
+                nome_fantasia = '$nome_fantasia', 
+                cnpj = '$cnpj' WHERE id = '$id'";
+    mysqli_query($conexao, $consulta);
+}
 ?>
