@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `empresa` (
-    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `pk_id_empresa` INT AUTO_INCREMENT PRIMARY KEY,
     `razao_social` VARCHAR(255),
     `nome_fantasia` VARCHAR(255),
     `cnpj` VARCHAR(20)
@@ -40,7 +40,7 @@ CREATE TABLE `empresa` (
 --
 
 CREATE TABLE `setor` (
-    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `pk_id_setor` INT AUTO_INCREMENT PRIMARY KEY,
     `descricao` VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -51,11 +51,11 @@ CREATE TABLE `setor` (
 --
 
 CREATE TABLE `empresa_setor` (
-    `empresa_id` INT NOT NULL,
-    `setor_id` INT NOT NULL,
-    PRIMARY KEY (`empresa_id`, `setor_id`),
-    FOREIGN KEY (`empresa_id`) REFERENCES `empresa` (`id`) ON DELETE CASCADE,
-    FOREIGN KEY (`setor_id`) REFERENCES `setor` (`id`) ON DELETE CASCADE
+    `fk_empresa_id` INT NOT NULL,
+    `fk_setor_id` INT NOT NULL,
+    PRIMARY KEY (`fk_empresa_id`, `fk_setor_id`),
+    FOREIGN KEY (`fk_empresa_id`) REFERENCES `pk_id_empresa` (`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`fk_setor_id`) REFERENCES `pk_id_setor` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 COMMIT;
