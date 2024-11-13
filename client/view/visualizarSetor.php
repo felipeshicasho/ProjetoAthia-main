@@ -1,5 +1,5 @@
 <?php
-require_once "../../data/funcoesBD.php";
+require "../../data/funcoesBD.php";
 ?>
 
 <!DOCTYPE html>
@@ -118,30 +118,26 @@ require_once "../../data/funcoesBD.php";
                 <h1>Visualizar Empresas: </h1>
 
                 <?php
-                $listaEmpresa = retornarEmpresa();
+                $listaSetor = retornarSetor();
 
                 // Cabeçalho da tabela
                 echo "<table class='update__table'>";
                 echo "<thead>";
                 echo "<tr>";
                 echo "<th class='update__th__td'>ID</th>";
-                echo "<th class='update__th__td'>Razão Social</th>";
-                echo "<th class='update__th__td'>Nome Fantasia</th>";
-                echo "<th class='update__th__td'>CNPJ</th>";
+                echo "<th class='update__th__td'>Descrição</th>";
                 echo "</tr>";
                 echo "</thead>";
                 echo "<tbody>";
 
                 // Loop para cada empresa
-                while ($empresa = mysqli_fetch_assoc($listaEmpresa)) {
+                while ($setor = mysqli_fetch_assoc($listaSetor)) {
                     echo "<tr>";
-                    echo "<td class='update__th__td'>" . $empresa["id"] . "</td>";
-                    echo "<td class='update__th__td'>" . $empresa["razao_social"] . "</td>";
-                    echo "<td class='update__th__td'>" . $empresa["nome_fantasia"] . "</td>";
-                    echo "<td class='update__th__td'>" . $empresa["cnpj"] . "</td>";
+                    echo "<td class='update__th__td'>" . $setor["id"] . "</td>";
+                    echo "<td class='update__th__td'>" . $setor["descricao"] . "</td>";
                     echo "</tr>";
                 }
-
+                
 
                 // Fechamento da tabela
                 echo "</tbody>";

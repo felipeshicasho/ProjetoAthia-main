@@ -6,7 +6,13 @@ require "funcoesBD.php";
 if (isset($_GET['acao']) && $_GET['acao'] === 'deletar' && isset($_GET['id'])) {
     $id = $_GET['id'];
     deletarEmpresa($id);
-    header('Location: ../client/view/modificarEmpresa.php');
+    header('Location: ../client/view/visualizarEmpresa.php');
+    exit();
+}
+else if (isset($_GET['acao']) && $_GET['acao'] === 'deletarSetor' && isset($_GET['id'])) {
+    $id = $_GET['id'];
+    deletarSetor($id);
+    header('Location: ../client/view/visualizarSetor.php');
     exit();
 }
 
@@ -28,7 +34,7 @@ if (
 else if (!empty($_POST['inputDescricao'])) {
     $descricao = $_POST['inputDescricao'];
     inserirSetor($descricao);
-    header('Location: ../client/view/modificarEmpresa.php');
+    header('Location: ../client/view/visualizarSetor.php');
     die();
 }
 
@@ -43,5 +49,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['acao']) && $_POST['ac
 
     modificarEmpresa($id, $razao_social, $nome_fantasia, $cnpj);
     header('Location: ../client/view/visualizarEmpresa.php');
+    exit();
+}
+// MODIFICAR SETOR
+else if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['acao']) && $_POST['acao'] === 'modificarSetor') {
+    $id = $_POST['id'];  
+
+    
+    $descricao = $_POST['descricao'];
+
+    modificarSetor($id, $descricao);
+    header('Location: ../client/view/visualizarSetor.php');
     exit();
 }

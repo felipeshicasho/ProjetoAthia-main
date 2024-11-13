@@ -85,25 +85,25 @@
               <img
                 src="../assets/icon/add.png"
                 class="li__icon__button"
-                alt="" /><a href="">Adicionar Setor</a>
+                alt="" /><a href="adicionarSetor.php">Adicionar Setor</a>
             </li>
             <li class="li__link li__menu">
               <img
                 src="../assets/icon/updated.png"
                 class="li__icon__button"
-                alt="" /><a href="">Modificar Setor</a>
+                alt="" /><a href="modificarSetor.php">Modificar Setor</a>
             </li>
             <li class="li__link li__menu">
               <img
                 src="../assets/icon/remove.png"
                 class="li__icon__button"
-                alt="" /><a href="">Remover Setor</a>
+                alt="" /><a href="removerSetor.php">Remover Setor</a>
             </li>
             <li class="li__link li__menu">
               <img
                 src="../assets/icon/view.png"
                 class="li__icon__button"
-                alt="" /><a href="">Visualizar Setor</a>
+                alt="" /><a href="visualizarSetor.php">Visualizar Setor</a>
             </li>
           </ul>
         </li>
@@ -123,7 +123,7 @@
           </label>
           <label for="cnpj" class="forms__input">
             CNPJ
-            <input type="text" placeholder="CNPJ" name="inputCnpj" class="form__text" id="cnpj"/>
+            <input type="text" placeholder="CNPJ" name="inputCnpj" class="form__text" id="cnpj" />
           </label>
           <input type="submit" value="Cadastrar" class="form__button">
         </form>

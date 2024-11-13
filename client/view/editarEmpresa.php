@@ -93,25 +93,25 @@ if (isset($_GET['id'])) {
                             <img
                                 src="../assets/icon/add.png"
                                 class="li__icon__button"
-                                alt="" /><a href="">Adicionar Setor</a>
+                                alt="" /><a href="adicionarSetor.php">Adicionar Setor</a>
                         </li>
                         <li class="li__link li__menu">
                             <img
                                 src="../assets/icon/updated.png"
                                 class="li__icon__button"
-                                alt="" /><a href="">Modificar Setor</a>
+                                alt="" /><a href="modificarSetor.php">Modificar Setor</a>
                         </li>
                         <li class="li__link li__menu">
                             <img
                                 src="../assets/icon/remove.png"
                                 class="li__icon__button"
-                                alt="" /><a href="">Remover Setor</a>
+                                alt="" /><a href="removerSetor.php">Remover Setor</a>
                         </li>
                         <li class="li__link li__menu">
                             <img
                                 src="../assets/icon/view.png"
                                 class="li__icon__button"
-                                alt="" /><a href="">Visualizar Setor</a>
+                                alt="" /><a href="visualizarSetor.php">Visualizar Setor</a>
                         </li>
                     </ul>
                 </li>

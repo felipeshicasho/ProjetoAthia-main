@@ -1,7 +1,11 @@
 <?php
 require_once "../../data/funcoesBD.php";
-?>
 
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $setor = mysqli_fetch_assoc(retornarSetorPorId($id));
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -115,39 +119,18 @@ require_once "../../data/funcoesBD.php";
         </aside>
         <section>
             <section class="forms__input">
-                <h1>Visualizar Empresas: </h1>
+                <h1>Editar setor // ID = <?php echo $setor['id']; ?></h1>
+                <form action="../../data/processamento.php" method="POST" class="forms__section">
+                    <input type="hidden" name="id" value="<?php echo $setor['id']; ?>">
 
-                <?php
-                $listaEmpresa = retornarEmpresa();
+                    <label for="descricao" class="forms__input">
+                        <?php echo $setor['descricao']; ?>
+                        <input type="text" placeholder="Nova descricao" name="descricao" class="form__text" />
+                    </label>
 
-                // Cabeçalho da tabela
-                echo "<table class='update__table'>";
-                echo "<thead>";
-                echo "<tr>";
-                echo "<th class='update__th__td'>ID</th>";
-                echo "<th class='update__th__td'>Razão Social</th>";
-                echo "<th class='update__th__td'>Nome Fantasia</th>";
-                echo "<th class='update__th__td'>CNPJ</th>";
-                echo "</tr>";
-                echo "</thead>";
-                echo "<tbody>";
+                    <button type="submit" name="acao" value="modificarSetor" class="form__button">Salvar Alterações</button>
 
-                // Loop para cada empresa
-                while ($empresa = mysqli_fetch_assoc($listaEmpresa)) {
-                    echo "<tr>";
-                    echo "<td class='update__th__td'>" . $empresa["id"] . "</td>";
-                    echo "<td class='update__th__td'>" . $empresa["razao_social"] . "</td>";
-                    echo "<td class='update__th__td'>" . $empresa["nome_fantasia"] . "</td>";
-                    echo "<td class='update__th__td'>" . $empresa["cnpj"] . "</td>";
-                    echo "</tr>";
-                }
-
-
-                // Fechamento da tabela
-                echo "</tbody>";
-                echo "</table>";
-                ?>
-
+                </form>
             </section>
         </section>
     </main>
