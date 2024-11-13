@@ -48,6 +48,12 @@
                         <li class="li__link li__menu">
                             <img
                                 class="li__icon__button"
+                                src="../assets/icon/add.png"
+                                alt="" /><a href="adicionarEmpresaSetor.php">Adicionar Setor na Empresa</a>
+                        </li>
+                        <li class="li__link li__menu">
+                            <img
+                                class="li__icon__button"
                                 src="../assets/icon/updated.png"
                                 alt="" /><a href="modificarEmpresa.php">Modificar Empresa</a>
                         </li>
@@ -68,7 +74,7 @@
                                 class="li__icon__button"
                                 src="../assets/icon/view.png"
                                 alt="" />
-                            <a href="">Visualizar Setores da Empresa</a>
+                            <a href="visualizarEmpresaSetor.php">Visualizar Setores da Empresa</a>
                         </li>
                     </ul>
                 </li>

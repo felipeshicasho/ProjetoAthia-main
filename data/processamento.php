@@ -6,13 +6,12 @@ require "funcoesBD.php";
 if (isset($_GET['acao']) && $_GET['acao'] === 'deletar' && isset($_GET['id'])) {
     $id = $_GET['id'];
     deletarEmpresa($id);
-    header('Location: ../client/view/visualizarEmpresa.php');
+    header('Location: ../client/view/removerEmpresa.php');
     exit();
-}
-else if (isset($_GET['acao']) && $_GET['acao'] === 'deletarSetor' && isset($_GET['id'])) {
+} else if (isset($_GET['acao']) && $_GET['acao'] === 'deletarSetor' && isset($_GET['id'])) {
     $id = $_GET['id'];
     deletarSetor($id);
-    header('Location: ../client/view/visualizarSetor.php');
+    header('Location: ../client/view/removerSetor.php');
     exit();
 }
 
@@ -29,7 +28,7 @@ if (
     inserirEmpresa($razao_social, $nome_fantasia, $cnpj);
     header('Location:../client/view/adicionarEmpresa.php');
     die();
-} 
+}
 // INSERIR SETOR
 else if (!empty($_POST['inputDescricao'])) {
     $descricao = $_POST['inputDescricao'];
@@ -40,9 +39,9 @@ else if (!empty($_POST['inputDescricao'])) {
 
 // MODIFICAR EMPRESA
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['acao']) && $_POST['acao'] === 'modificar') {
-    $id = $_POST['id'];  
+    $id = $_POST['id'];
 
-    
+
     $razao_social = $_POST['razao_social'];
     $nome_fantasia = $_POST['nome_fantasia'];
     $cnpj = $_POST['cnpj'];
@@ -53,12 +52,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['acao']) && $_POST['ac
 }
 // MODIFICAR SETOR
 else if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['acao']) && $_POST['acao'] === 'modificarSetor') {
-    $id = $_POST['id'];  
+    $id = $_POST['id'];
 
-    
+
     $descricao = $_POST['descricao'];
 
     modificarSetor($id, $descricao);
     header('Location: ../client/view/visualizarSetor.php');
     exit();
+}
+
+
+//  EMPRESA ---- SETOR
+
+// ADICIONAR EMPRESA
+if (
+    !empty($_POST['inputOptionEmpresa']) && !empty($_POST['inputOptionSetor'])
+) {
+    $empresa_id = $_POST['inputOptionEmpresa'];
+    $setor_id = $_POST['inputOptionSetor'];
+
+    inserirEmpresaSetor($empresa_id, $setor_id);
+    header('Location: ../client/view/adicionarEmpresa.php');
+    die();
 }

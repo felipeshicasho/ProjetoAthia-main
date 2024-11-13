@@ -52,6 +52,12 @@ require "../../data/funcoesBD.php";
                         <li class="li__link li__menu">
                             <img
                                 class="li__icon__button"
+                                src="../assets/icon/add.png"
+                                alt="" /><a href="adicionarEmpresaSetor.php">Adicionar Setor na Empresa</a>
+                        </li>
+                        <li class="li__link li__menu">
+                            <img
+                                class="li__icon__button"
                                 src="../assets/icon/updated.png"
                                 alt="" /><a href="modificarEmpresa.php">Modificar Empresa</a>
                         </li>
@@ -72,7 +78,7 @@ require "../../data/funcoesBD.php";
                                 class="li__icon__button"
                                 src="../assets/icon/view.png"
                                 alt="" />
-                            <a href="">Visualizar Setores da Empresa</a>
+                            <a href="visualizarEmpresaSetor.php">Visualizar Setores da Empresa</a>
                         </li>
                     </ul>
                 </li>
@@ -115,7 +121,7 @@ require "../../data/funcoesBD.php";
         </aside>
         <section>
             <section class="forms__input">
-                <h1>Visualizar Empresas: </h1>
+                <h1>Visualizar Setor: </h1>
 
                 <?php
                 $listaSetor = retornarSetor();

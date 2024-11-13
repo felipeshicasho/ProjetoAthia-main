@@ -121,40 +121,112 @@ require_once "../../data/funcoesBD.php";
         </aside>
         <section>
             <section class="forms__input">
-                <h1>Visualizar Setor: </h1>
+                <h1>Adicionar Setor na Empresa</h1>
+                <form action="../../data/processamento.php" method="POST" class="forms__section">
+                    <label for="razaoSocial" class="forms__input">
+                        <h1>Empresa</h1>
+                        <select name="inputOptionEmpresa" id="razaoSocial">
+                            <option value="" id="optionEmpresa">Selecione uma empresa</option> <!-- Placeholder opcional -->
+                            <?php
+                            $listaEmpresa = retornarEmpresa();
+                            if ($listaEmpresa) {
+                                while ($empresa = mysqli_fetch_assoc($listaEmpresa)) {
+                                    echo "<option name='inputOptionEmpresa' value='" . $empresa['id'] . "'>" . $empresa['id'] . "</option>";
+                                }
+                            } else {
+                                echo "<option value=''>Nenhuma empresa encontrada</option>";
+                            }
+                            ?>
+                        </select>
+                    </label>
 
-                <?php
-                $listaSetor = retornarSetor();
+                    <label for="razaoSocial" class="forms__input">
+                        <h1>Setor</h1>
+                        <select name="inputOptionSetor" id="razaoSocial">
+                            <option value="" id="optionSetor">Selecione uma empresa</option> <!-- Placeholder opcional -->
+                            <?php
+                            $listaSetor = retornarSetor();
+                            if ($listaSetor) {
+                                while ($setor = mysqli_fetch_assoc($listaSetor)) {
+                                    echo "<option name='inputOptionSetor' value='" . $setor['id'] . "'>" . $setor['id'] . "</option>";
+                                }
+                            } else {
+                                echo "<option value=''>Nenhum setor encontrado</option>";
+                            }
+                            ?>
+                        </select>
+                    </label>
+                    <div>
+                        <p id="textoID"></p>
+                    </div>
+                    <input type="submit" value="Cadastrar" class="form__button">
+                </form>
+                <section class="forms__input">
+                    <h1>Visualizar Empresas: </h1>
 
-                // Cabeçalho da tabela
-                echo "<table class='update__table'>";
-                echo "<thead>";
-                echo "<tr>";
-                echo "<th class='update__th__td'>ID</th>";
-                echo "<th class='update__th__td'>Descrição</th>";
-                echo "</tr>";
-                echo "</thead>";
-                echo "<tbody>";
+                    <?php
+                    $listaEmpresa = retornarEmpresa();
 
-                // Loop para cada Setor
-                while ($setor = mysqli_fetch_assoc($listaSetor)) {
+                    // Cabeçalho da tabela
+                    echo "<table class='update__table'>";
+                    echo "<thead>";
                     echo "<tr>";
-                    echo "<td class='update__th__td'>" . $setor["id"] . "</td>";
-                    echo "<td class='update__th__td'>" . $setor["descricao"] . "</td>";
-                    echo "<td class='update__th__td__remove'>
-                              <a href='../../data/processamento.php?acao=deletarSetor&id=" . $setor["id"] . "'>
-                                  <img src='../assets/icon/remove.png' class='li__icon__button' alt='Deletar'>
-                              </a>
-                          </td>";
+                    echo "<th class='update__th__td'>ID</th>";
+                    echo "<th class='update__th__td'>Razão Social</th>";
+                    echo "<th class='update__th__td'>Nome Fantasia</th>";
+                    echo "<th class='update__th__td'>CNPJ</th>";
                     echo "</tr>";
-                }
-                
+                    echo "</thead>";
+                    echo "<tbody>";
 
-                // Fechamento da tabela
-                echo "</tbody>";
-                echo "</table>";
-                ?>
+                    // Loop para cada empresa
+                    while ($empresa = mysqli_fetch_assoc($listaEmpresa)) {
+                        echo "<tr>";
+                        echo "<td class='update__th__td'>" . $empresa["id"] . "</td>";
+                        echo "<td class='update__th__td'>" . $empresa["razao_social"] . "</td>";
+                        echo "<td class='update__th__td'>" . $empresa["nome_fantasia"] . "</td>";
+                        echo "<td class='update__th__td'>" . $empresa["cnpj"] . "</td>";
+                        echo "</tr>";
+                    }
 
+
+                    // Fechamento da tabela
+                    echo "</tbody>";
+                    echo "</table>";
+                    ?>
+
+                </section>
+                <section class="forms__input">
+                    <h1>Visualizar Setor: </h1>
+
+                    <?php
+                    $listaSetor = retornarSetor();
+
+                    // Cabeçalho da tabela
+                    echo "<table class='update__table'>";
+                    echo "<thead>";
+                    echo "<tr>";
+                    echo "<th class='update__th__td'>ID</th>";
+                    echo "<th class='update__th__td'>Descrição</th>";
+                    echo "</tr>";
+                    echo "</thead>";
+                    echo "<tbody>";
+
+                    // Loop para cada empresa
+                    while ($setor = mysqli_fetch_assoc($listaSetor)) {
+                        echo "<tr>";
+                        echo "<td class='update__th__td'>" . $setor["id"] . "</td>";
+                        echo "<td class='update__th__td'>" . $setor["descricao"] . "</td>";
+                        echo "</tr>";
+                    }
+
+
+                    // Fechamento da tabela
+                    echo "</tbody>";
+                    echo "</table>";
+                    ?>
+
+                </section>
             </section>
         </section>
     </main>

@@ -37,21 +37,18 @@ if (isset($_GET['id'])) {
 
     <main>
         <aside>
-            <ul>
-                <li class="li__principal">
-                    <section class="li__button">
-                        <img
-                            src="../assets/icon/empresa.png"
-                            class="li__icon"
-                            alt="Ícone da empresa" />
-                        Empresa:
-                    </section>
-                    <ul>
+        <ul>
                         <li class="li__link li__menu">
                             <img
                                 class="li__icon__button"
                                 src="../assets/icon/add.png"
                                 alt="" /><a href="adicionarEmpresa.php">Adicionar Empresa</a>
+                        </li>
+                        <li class="li__link li__menu">
+                            <img
+                                class="li__icon__button"
+                                src="../assets/icon/add.png"
+                                alt="" /><a href="adicionarEmpresaSetor.php">Adicionar Setor na Empresa</a>
                         </li>
                         <li class="li__link li__menu">
                             <img
@@ -76,46 +73,9 @@ if (isset($_GET['id'])) {
                                 class="li__icon__button"
                                 src="../assets/icon/view.png"
                                 alt="" />
-                            <a href="">Visualizar Setores da Empresa</a>
+                            <a href="visualizarEmpresaSetor.php">Visualizar Setores da Empresa</a>
                         </li>
                     </ul>
-                </li>
-                <li class="li__principal">
-                    <section class="li__button">
-                        <img
-                            src="../assets/icon/setor.png"
-                            class="li__icon"
-                            alt="Ícone do setor" />
-                        Setor:
-                    </section>
-                    <ul>
-                        <li class="li__link li__menu">
-                            <img
-                                src="../assets/icon/add.png"
-                                class="li__icon__button"
-                                alt="" /><a href="adicionarSetor.php">Adicionar Setor</a>
-                        </li>
-                        <li class="li__link li__menu">
-                            <img
-                                src="../assets/icon/updated.png"
-                                class="li__icon__button"
-                                alt="" /><a href="modificarSetor.php">Modificar Setor</a>
-                        </li>
-                        <li class="li__link li__menu">
-                            <img
-                                src="../assets/icon/remove.png"
-                                class="li__icon__button"
-                                alt="" /><a href="removerSetor.php">Remover Setor</a>
-                        </li>
-                        <li class="li__link li__menu">
-                            <img
-                                src="../assets/icon/view.png"
-                                class="li__icon__button"
-                                alt="" /><a href="visualizarSetor.php">Visualizar Setor</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
         </aside>
         <section>
             <section class="forms__input">

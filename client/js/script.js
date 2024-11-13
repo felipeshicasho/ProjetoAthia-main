@@ -31,3 +31,15 @@ document.querySelector("#cnpj").addEventListener("input", (e) => {
 
   e.target.value = cnpj;
 });
+
+document.querySelector("#optionEmpresa").addEventListener("change", atualizarTexto);
+document.querySelector("#optionSetor").addEventListener("change", atualizarTexto);
+
+function atualizarTexto() {
+  // Pega os valores dos selects
+  let empresa = document.querySelector("#optionEmpresa").value;
+  let setor = document.querySelector("#optionSetor").value;
+  
+  // Atualiza o conteúdo do parágrafo #textoID com os valores selecionados
+  document.querySelector("#textoID").textContent = `Empresa: ${empresa} | Setor: ${setor}`;
+}

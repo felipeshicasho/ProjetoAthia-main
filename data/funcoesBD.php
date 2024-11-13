@@ -56,13 +56,13 @@ function retornarEmpresaPorId($id) {
 // SETOR
 
 
-function inserirSetor($descricao){
+function inserirSetor($descricao) {
     $conexao = conectarBD();
-    $consulta = "INSERT INTO setor (descricao)
-                 VALUES ('$descricao')";
+    $consulta = "INSERT INTO setor (descricao) VALUES ('$descricao')";
     mysqli_query($conexao, $consulta);
     mysqli_close($conexao);
 }
+
 
 function retornarSetor(){
     $conexao = conectarBD();
@@ -99,25 +99,41 @@ function retornarSetorPorId($id) {
 
 // EMPRESA-SETOR
 
-function inserirEmpresaSetor($empresa_id, $setor_id){
+function inserirEmpresaSetor($empresa_id, $setor_id) {
     $conexao = conectarBD();
 
-    // Garantir que é um número inteiro
-    $empresa_id = (int) $empresa_id; 
-    $setor_id = (int) $setor_id; 
+    $consulta_empresa = "SELECT id FROM empresa WHERE id = '$empresa_id'";
+    $resultado_empresa = mysqli_query($conexao, $consulta_empresa);
 
-    $consulta = "INSERT INTO empresa_setor (empresa_id, setor_id)
-                 VALUES ('$empresa_id', '$setor_id')";
-    mysqli_query($conexao, $consulta);
+    $consulta_setor = "SELECT id FROM setor WHERE id = '$setor_id'";
+    $resultado_setor = mysqli_query($conexao, $consulta_setor);
+
+    if (mysqli_num_rows($resultado_empresa) > 0 && mysqli_num_rows($resultado_setor) > 0) {
+        $consulta = "INSERT INTO empresa_setor (empresa_id, setor_id) VALUES ('$empresa_id', '$setor_id')";
+        mysqli_query($conexao, $consulta);
+    } else {
+        echo "Erro: A empresa ou o setor não existe.";
+    }
+
     mysqli_close($conexao);
 }
 
-function retornarEmpresaSetor(){
+function retornarEmpresaSetor() {
     $conexao = conectarBD();
-    $consulta = "SELECT * FROM empresa_setor";
-    $listaEmpresaSetor = mysqli_query($conexao, $consulta);
-    mysqli_close($conexao);
-    return $listaEmpresaSetor;
+
+    // Consulta com JOIN para trazer o nome da empresa e a descrição do setor junto com os IDs
+    $consulta = "
+        SELECT empresa_setor.empresa_id, empresa.razao_social, empresa_setor.setor_id, setor.descricao 
+        FROM empresa_setor
+        JOIN empresa ON empresa_setor.empresa_id = empresa.id
+        JOIN setor ON empresa_setor.setor_id = setor.id
+    ";
+
+    $resultado = mysqli_query($conexao, $consulta);
+    return $resultado;
 }
+
+
+
 
 ?>

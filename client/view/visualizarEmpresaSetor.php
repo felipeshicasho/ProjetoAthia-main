@@ -121,39 +121,34 @@ require_once "../../data/funcoesBD.php";
         </aside>
         <section>
             <section class="forms__input">
-                <h1>Visualizar Setor: </h1>
+                <h1>Visualizar Empresas: </h1>
 
                 <?php
-                $listaSetor = retornarSetor();
+                $listaEmpresaSetor = retornarEmpresaSetor();
 
                 // Cabeçalho da tabela
                 echo "<table class='update__table'>";
                 echo "<thead>";
                 echo "<tr>";
-                echo "<th class='update__th__td'>ID</th>";
-                echo "<th class='update__th__td'>Descrição</th>";
+                echo "<th class='update__th__td'>Empresa</th>";
+                echo "<th class='update__th__td'>Setor</th>";
                 echo "</tr>";
                 echo "</thead>";
                 echo "<tbody>";
 
-                // Loop para cada Setor
-                while ($setor = mysqli_fetch_assoc($listaSetor)) {
+                // Loop para cada empresa e setor
+                while ($empresaSetor = mysqli_fetch_assoc($listaEmpresaSetor)) {
                     echo "<tr>";
-                    echo "<td class='update__th__td'>" . $setor["id"] . "</td>";
-                    echo "<td class='update__th__td'>" . $setor["descricao"] . "</td>";
-                    echo "<td class='update__th__td__remove'>
-                              <a href='../../data/processamento.php?acao=deletarSetor&id=" . $setor["id"] . "'>
-                                  <img src='../assets/icon/remove.png' class='li__icon__button' alt='Deletar'>
-                              </a>
-                          </td>";
+                    echo "<td class='update__th__td'>" . $empresaSetor["empresa_id"] . " (" . $empresaSetor["razao_social"] . ")" . "</td>";
+                    echo "<td class='update__th__td'>" . $empresaSetor["setor_id"] . " (" . $empresaSetor["descricao"] . ")" . "</td>";
                     echo "</tr>";
                 }
-                
 
                 // Fechamento da tabela
                 echo "</tbody>";
                 echo "</table>";
                 ?>
+
 
             </section>
         </section>
