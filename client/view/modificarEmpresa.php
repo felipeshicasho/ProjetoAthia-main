@@ -1,5 +1,5 @@
 <?php
-require_once "../../data/funcoesBD.php";
+require "../../data/funcoesBD.php";
 ?>
 
 <!DOCTYPE html>
@@ -139,13 +139,8 @@ require_once "../../data/funcoesBD.php";
                     echo "<td class='update__th__td'>" . $empresa["razao_social"] . "</td>";
                     echo "<td class='update__th__td'>" . $empresa["nome_fantasia"] . "</td>";
                     echo "<td class='update__th__td'>" . $empresa["cnpj"] . "</td>";
-                    echo "<td class='update__th__td__remove'>
-                              <a href='../../data/processamento.php?acao=deletar&id=" . $empresa["id"] . "'>
-                                  <img src='../assets/icon/remove.png' class='li__icon__button' alt='Deletar'>
-                              </a>
-                          </td>";
                     echo "<td class='update__th__td__update'>
-                              <a href='../../view/editarEmpresa.php?id=" . $empresa["id"] . "'>
+                              <a href='../view/editarEmpresa.php?id=" . $empresa["id"] . "'>
                                   <img src='../assets/icon/updated.png' class='li__icon__button' alt='Editar'>
                               </a>
                           </td>";

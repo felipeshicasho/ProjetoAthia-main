@@ -77,11 +77,23 @@ function deletarSetor($id){
     mysqli_close($conexao);
 }
 
+// Função para modificar os Dados
 function modificarEmpresa($id, $razao_social, $nome_fantasia, $cnpj) {
     $conexao = conectarBD();
     $consulta = "UPDATE empresa SET razao_social = '$razao_social', 
                 nome_fantasia = '$nome_fantasia', 
                 cnpj = '$cnpj' WHERE id = '$id'";
     mysqli_query($conexao, $consulta);
+    mysqli_close($conexao);
+
+}
+
+function retornarEmpresaPorId($id) {
+    $conexao = conectarBD();
+    $query = "SELECT * FROM empresa WHERE id = '$id'";
+    $resultado = mysqli_query($conexao, $query);
+
+    // Retorna o resultado da consulta
+    return $resultado;
 }
 ?>
